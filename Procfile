@@ -1,0 +1,1 @@
+web: gunicorn pelc-blog.wsgi --log-file -
