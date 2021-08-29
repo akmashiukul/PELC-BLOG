@@ -26,8 +26,9 @@ class blog(ListView):
 def question(request):
    if request.method=="POST":
         question = request.POST.get('question', '')
+        name = request.POST.get('name', '')
         class_name = request.POST.get('class_name', '')
-        question = Question(sender=request.user, question=question,class_name=class_name)
+        question = Question(sender=request.user, question=question,class_name=class_name,name=name)
         question.save()
    return render(request,"question.html")
 def search(request):

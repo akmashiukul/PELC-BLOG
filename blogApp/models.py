@@ -17,11 +17,12 @@ class PostComment(models.Model):
         return f'{self.sender.get_username()}'
 class Question(models.Model):
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    name= models.TextField(default="")
     question = models.TextField(default="")
     class_name=models.CharField(default="",max_length=3)
 
     def __str__(self):
-        return f'{self.sender.get_username()}'
+        return f'{ self.name} class {(self.class_name)}'
 
 class Categories(models.Model):
     categoryname = models.CharField(max_length=255)
